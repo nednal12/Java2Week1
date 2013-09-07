@@ -1,3 +1,12 @@
+/*
+ * project		Java2Week1
+ * 
+ * package		com.bmarohnic.java2week1
+ * 
+ * @author		Brent Marohnic
+ * 
+ * date			Sep 7, 2013
+ */
 package com.bmarohnic.java2week1;
 
 import java.io.BufferedInputStream;
@@ -9,23 +18,44 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class WebStuff.
+ */
 public class WebStuff {
 	
 	static Boolean _conn = false;
 	static String _connectionType = "Unavailable";
 	
+	/**
+	 * Gets the connection type.
+	 *
+	 * @param context the context
+	 * @return the connection type
+	 */
 	public static String getConnectionType(Context context){
 		netInfo(context);
 		return _connectionType;
 		
 	}
 	
+	/**
+	 * Gets the connection status.
+	 *
+	 * @param context the context
+	 * @return the connection status
+	 */
 	public static Boolean getConnectionStatus(Context context){
 		netInfo(context);
 		return _conn;
 	}
 	
 	
+	/**
+	 * Net info.
+	 *
+	 * @param context the context
+	 */
 	private static void netInfo(Context context){
 		ConnectivityManager cm = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
 		
@@ -39,6 +69,12 @@ public class WebStuff {
 		}
 	}
 	
+	/**
+	 * Gets the uRL string response.
+	 *
+	 * @param url the url
+	 * @return the uRL string response
+	 */
 	public static String getURLStringResponse(URL url){
 		String response = "";
 		

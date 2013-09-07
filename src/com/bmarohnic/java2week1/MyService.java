@@ -1,3 +1,12 @@
+/*
+ * project		Java2Week1
+ * 
+ * package		com.bmarohnic.java2week1
+ * 
+ * @author		Brent Marohnic
+ * 
+ * date			Sep 7, 2013
+ */
 package com.bmarohnic.java2week1;
 
 import java.io.File;
@@ -6,16 +15,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-
-import com.bmarohnic.java2week1.WebStuff;
-import com.bmarohnic.java2week1.FileStuff;
-
 import android.app.Activity;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MyService.
+ */
 public class MyService extends IntentService{
 	
 	private int result = Activity.RESULT_CANCELED;
@@ -25,11 +34,17 @@ public class MyService extends IntentService{
 	public static final String RESULT = "result";
 	public static final String NOTIFICATION = "com.bmarohnic.android.service.receiver";
 	
+	/**
+	 * Instantiates a new my service.
+	 */
 	public MyService() {
 		super("MyService");
 		// TODO Auto-generated constructor stub
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.IntentService#onHandleIntent(android.content.Intent)
+	 */
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		// TODO Auto-generated method stub
@@ -87,6 +102,12 @@ public class MyService extends IntentService{
 		
 	}
 
+	/**
+	 * Publish results.
+	 *
+	 * @param outputPath the output path
+	 * @param result the result
+	 */
 	private void publishResults(String outputPath, int result) {
 	    Intent intent = new Intent(NOTIFICATION);
 	    intent.putExtra(FILEPATH, outputPath);

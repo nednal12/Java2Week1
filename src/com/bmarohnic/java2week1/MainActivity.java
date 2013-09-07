@@ -1,3 +1,12 @@
+/*
+ * project		Java2Week1
+ * 
+ * package		com.bmarohnic.java2week1
+ * 
+ * @author		Brent Marohnic
+ * 
+ * date			Sep 7, 2013
+ */
 package com.bmarohnic.java2week1;
 
 import java.io.FileInputStream;
@@ -26,6 +35,10 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MainActivity.
+ */
 public class MainActivity extends Activity {
 
 	ListView listview;
@@ -71,6 +84,9 @@ public class MainActivity extends Activity {
 	    }
 	  };
 	   
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -83,6 +99,9 @@ public class MainActivity extends Activity {
 		listview.addHeaderView(listHeader);
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -90,17 +109,29 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onResume()
+	 */
 	@Override
 	  protected void onResume() {
 	    super.onResume();
 	    registerReceiver(receiver, new IntentFilter(MyService.NOTIFICATION));
 	  }
-	  @Override
+	  
+  	/* (non-Javadoc)
+  	 * @see android.app.Activity#onPause()
+  	 */
+  	@Override
 	  protected void onPause() {
 	    super.onPause();
 	    unregisterReceiver(receiver);
 	  }
 	    
+	/**
+	 * On click.
+	 *
+	 * @param view the view
+	 */
 	public void onClick(View view) {
 
 		// Detect network connection
@@ -129,6 +160,9 @@ public class MainActivity extends Activity {
 	}
 
 	
+	/**
+	 * Display data.
+	 */
 	public void displayData(){
 		
 		ArrayList<HashMap<String, String>> myList = new ArrayList<HashMap<String, String>>();
