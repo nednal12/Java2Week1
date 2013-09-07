@@ -9,6 +9,7 @@ import java.net.URL;
 
 import android.app.Activity;
 import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
 
@@ -32,8 +33,8 @@ public class MyService extends IntentService{
 		
 		String urlPath = intent.getStringExtra(URL);
 	    String fileName = intent.getStringExtra(FILENAME);
-	    File output = new File(Environment.getExternalStorageDirectory(),
-	        fileName);
+	    File output = new File(Environment.getExternalStorageDirectory(),fileName);
+	    
 	    if (output.exists()) {
 	      output.delete();
 	    }
@@ -45,7 +46,8 @@ public class MyService extends IntentService{
 	      URL url = new URL(urlPath);
 	      stream = url.openConnection().getInputStream();
 	      InputStreamReader reader = new InputStreamReader(stream);
-	      fos = new FileOutputStream(output.getPath());
+//	      fos = new FileOutputStream(output.getPath());
+	      fos = openFileOutput(fileName, Context.MODE_PRIVATE);
 	      int next = -1;
 	      while ((next = reader.read()) != -1) {
 	        fos.write(next);
